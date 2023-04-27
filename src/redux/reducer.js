@@ -1,13 +1,16 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER, TOOGLE_THEME } from './actions';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, TOOGLE_THEME, APP_STARTED, READY_APP, AUTH_APP } from './actions';
 
 // Başlangıç durumu (initial state) tanımlayın
 const initialState = {
     counter: 0,
-    theme: 'dark'
+    theme: 'dark',
+    started: false,
+    auth: false,
+    ready: false,
 };
 
 // Reducer fonksiyonunu oluşturun
-const counter = (state = initialState.counter, action) => {
+const Counter = (state = initialState.counter, action) => {
     switch (action.type) {
         case INCREMENT_COUNTER:
             return state + 1;
@@ -18,7 +21,34 @@ const counter = (state = initialState.counter, action) => {
     }
 };
 
-const theme = (state = initialState.theme, action) => {
+const Auth = (state = initialState.auth, action) => {
+    switch (action.type) {
+        case AUTH_APP:
+            return true;
+        default:
+            return state;
+    }
+}
+
+const ReadyApp = (state = initialState.ready, action) => {
+    switch (action.type) {
+        case READY_APP:
+            return true;
+        default:
+            return state;
+    }
+}
+
+const Started = (state = initialState.started, action) => {
+    switch (action.type) {
+        case APP_STARTED:
+            return true
+        default:
+            return state
+    }
+}
+
+const Theme = (state = initialState.theme, action) => {
     switch (action.type) {
         case TOOGLE_THEME:
             return state === 'dark' ? 'light' : 'dark';
@@ -28,6 +58,9 @@ const theme = (state = initialState.theme, action) => {
 }
 
 export {
-    counter,
-    theme
+    Counter,
+    Theme,
+    Started,
+    Auth,
+    ReadyApp
 }

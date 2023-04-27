@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { counter, theme } from './reducer'
+import { Counter, Theme, Started, Auth, ReadyApp } from './reducer'
 export const store = configureStore({
     reducer: {
-        counter,
-        theme
+        Counter,
+        Theme,
+        Started,
+        Auth,
+        ReadyApp
     },
 })

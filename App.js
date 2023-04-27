@@ -1,11 +1,11 @@
 import { store } from './src/redux/store'
 import { Provider } from 'react-redux'
-import Main from './Main'
+import MainRoute from './src/navigation/MainRoute'
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Main />
+      <MainRoute />
     </Provider>
   );
 }
